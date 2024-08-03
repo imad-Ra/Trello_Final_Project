@@ -1,0 +1,18 @@
+{
+  "browser": "Chrome",
+  "url": "https://trello.com/",
+  "email": "imadrabah5@gmail.com",
+  "password": "ImadRabah5",
+  "wrong_password": "PassPass",
+  "username": "imadrabah5",
+  "board_title": "test1",
+  "member_email": "trellomember@outlook.com",
+  "member_password": "Trello@Member",
+  "member_username": "Trello Member",
+  "card_text": "test for the card function",
+  "login_url_id_ep": "nbg7m19dhjs",
+  "url_ep": {
+    "TRELLO_URL_U_EP": "https://trello.com/u/",
+    "BOARDS_EP": "/boards"
+  }
+}
