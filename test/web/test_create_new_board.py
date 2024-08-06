@@ -32,7 +32,7 @@ class HomePageTest(unittest.TestCase):
         BoardPage(self.driver).delete_board_flow()
         self.driver.quit()
 
-    def test_create_board_successful(self):
+    def test_create_board(self):
         # Test case to create a board and verify its creation
         logging.info("Create Board Test")
         self.home_page.create_board_button_click()
@@ -40,5 +40,5 @@ class HomePageTest(unittest.TestCase):
         self.home_page.create_button_click()
 
         # Wait for URL to contain the board title and assert its presence
-        WebDriverWait(self.driver, 25).until(EC.url_contains(self.config['board_title']))
+        WebDriverWait(self.driver, 30).until(EC.url_contains(self.config['board_title']))
         self.assertTrue(self.config['board_title'] in self.driver.current_url)

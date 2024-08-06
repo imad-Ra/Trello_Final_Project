@@ -6,11 +6,14 @@ from logic.web.base_app_page import BaseAppPage
 
 
 class HomePage(BaseAppPage):
+    BOARD_NAME = "//div[@class='LinesEllipsis  '] "
+    NEW_BOARD = "//a[@class='board-tile']"
     CREATE_BOARD_BUTTON = '//div[@class="board-tile mod-add"]'
     BOARD_TITLE_INPUT = '//input[@aria-required="true"]'
     CREATE_BUTTON = '//button[text()="Create"]'
     HEADER_ACCOUNT_BUTTON = '//button[@data-testid="header-member-menu-button"]'
     PROFILE_AND_VISIBILITY_BUTTON = '//a[@data-testid="account-menu-profile"]'
+
 
     def __init__(self, driver):
         """
@@ -75,3 +78,13 @@ class HomePage(BaseAppPage):
             profile_and_visibility_button.click()
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
+
+    def new_board_is_visible(self):
+        new_board = WebDriverWait(self._driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, self.NEW_BOARD)))
+        return new_board.is_displayed()
+
+    def get_board_name(self):
+        board_name = WebDriverWait(self._driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, self.BOARD_NAME)))
+        return board_name.text

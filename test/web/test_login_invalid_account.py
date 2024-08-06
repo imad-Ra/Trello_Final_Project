@@ -9,7 +9,7 @@ from logic.web.first_page import FirstPage
 from logic.web.login_page import LoginPage
 
 
-class LoginTest(unittest.TestCase):
+class SuccessfulLoginTest(unittest.TestCase):
 
     def setUp(self):
         # Initialize the browser and load configuration
@@ -22,27 +22,7 @@ class LoginTest(unittest.TestCase):
     def tearDown(self):
         # Quit the WebDriver session after test execution
         self.driver.quit()
-
-    def test_login_successful(self):
-        trello_u_ep = self.config["url_ep"]["TRELLO_URL_U_EP"]
-        BOARDS_EP = self.config["url_ep"]["BOARDS_EP"]
-
-        # Test case for successful login
-        logging.info("Successful Login Test")
-        first_page = FirstPage(self.driver)
-        first_page.login_button_click()  # click the Login button
-        login_page = LoginPage(self.driver)
-        login_page.fill_login_email_input(self.config['email'])  # Enter email
-        login_page.continue_button_click()  # click the continue button
-        login_page.fill_login_password_input(self.config['password'])  # Enter password
-        login_page.continue_button_click()  # click the continue button
-
-        # Wait up to 10 seconds until the URL matches the expected pattern
-        WebDriverWait(self.driver, 20).until(EC.url_matches(f"{trello_u_ep}{self.config['login_url_id_ep']}{BOARDS_EP}"))
-        # Assert that the current URL matches the expected user URL
-        self.assertEqual(self.driver.current_url, f"{trello_u_ep}{self.config['login_url_id_ep']}{BOARDS_EP}")
-
-    def test_login_unsuccessful(self):
+    def test_login_invalid_account(self):
         # Test case for unsuccessful login
         logging.info("UnSuccessful Login Test")
         first_page = FirstPage(self.driver)

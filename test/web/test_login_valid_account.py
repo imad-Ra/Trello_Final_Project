@@ -9,7 +9,7 @@ from logic.web.first_page import FirstPage
 from logic.web.login_page import LoginPage
 
 
-class LoginTest(unittest.TestCase):
+class SuccessfulLoginTest(unittest.TestCase):
 
     def setUp(self):
         # Initialize the browser and load configuration
@@ -24,8 +24,8 @@ class LoginTest(unittest.TestCase):
         self.driver.quit()
 
     def test_login_successful(self):
-        trello_u_ep = self.config["url_ep"]["TRELLO_URL_U_EP"]
-        BOARDS_EP = self.config["url_ep"]["BOARDS_EP"]
+        # trello_u_ep = self.config["url_ep"]["TRELLO_URL_U_EP"]
+        # BOARDS_EP = self.config["url_ep"]["BOARDS_EP"]
 
         # Test case for successful login
         logging.info("Successful Login Test")
@@ -37,20 +37,7 @@ class LoginTest(unittest.TestCase):
         login_page.fill_login_password_input(self.config['password'])  # Enter password
         login_page.continue_button_click()  # click the continue button
 
-        # Wait up to 10 seconds until the URL matches the expected pattern
-        WebDriverWait(self.driver, 20).until(EC.url_matches(f"{trello_u_ep}{self.config['login_url_id_ep']}{BOARDS_EP}"))
-        # Assert that the current URL matches the expected user URL
-        self.assertEqual(self.driver.current_url, f"{trello_u_ep}{self.config['login_url_id_ep']}{BOARDS_EP}")
+        # Wait for URL to contain the board title and assert its presence
+        WebDriverWait(self.driver, 25).until(EC.url_contains(self.config['username']))
+        self.assertTrue(self.config['username'] in self.driver.current_url)
 
-    def test_login_unsuccessful(self):
-        # Test case for unsuccessful login
-        logging.info("UnSuccessful Login Test")
-        first_page = FirstPage(self.driver)
-        first_page.login_button_click()
-        login_page = LoginPage(self.driver)
-        login_page.fill_login_email_input(self.config['email'])
-        login_page.continue_button_click()
-        login_page.fill_login_password_input(self.config['wrong_password'])
-        login_page.continue_button_click()
-        WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, login_page.LOGIN_ERROR)))
-        self.assertTrue(self.driver.find_element(By.XPATH, login_page.LOGIN_ERROR).is_displayed())

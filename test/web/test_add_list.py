@@ -36,23 +36,10 @@ class BoardPageTest(unittest.TestCase):
         self.driver.quit()
 
 
-    def test_add_card(self):
+    def test_add_list(self):
         # Test case to add a card to the board and verify its presence
         logging.info("Add Card Test")
-        self.board_page.fill_list_test_area_input(self.config['card_text'])
+        self.board_page.fill_list_test_area_input(self.config['list_text'])
         self.board_page.add_list_button_click()
         WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.XPATH, self.board_page.ADDED_LIST_HEADER)))
         self.assertTrue(self.driver.find_element(By.XPATH, self.board_page.ADDED_LIST_HEADER).is_displayed())
-
-    def test_delete_board_successful(self):
-        # Test case to delete a board and verify redirection to the main boards page
-        logging.info("Delete Board Test")
-        self.board_page.header_menu_button_click()
-        self.board_page.close_board_button_click()
-        self.board_page.confirm_close_board_button_click()
-        self.board_page.delete_board_button_click()
-        self.board_page.confirm_delete_board_button_click()
-
-        # Assert that the URL contains the username after deletion
-        WebDriverWait(self.driver, 10).until(EC.url_contains(self.config['username']))
-        self.assertTrue(self.config['username'] in self.driver.current_url)

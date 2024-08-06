@@ -1,18 +1,102 @@
 {
   "browser": "Chrome",
-  "url": "https://trello.com/",
+  "url": "https://trello.com",
   "email": "imadrabah5@gmail.com",
   "password": "ImadRabah5",
+  "new_name": "new_board",
   "wrong_password": "PassPass",
   "username": "imadrabah5",
   "board_title": "test1",
   "member_email": "trellomember@outlook.com",
   "member_password": "Trello@Member",
   "member_username": "Trello Member",
-  "card_text": "test for the card function",
+  "list_text": "test list function",
   "login_url_id_ep": "nbg7m19dhjs",
   "url_ep": {
     "TRELLO_URL_U_EP": "https://trello.com/u/",
-    "BOARDS_EP": "/boards"
+    "Boards": "/boards",
+    "Key": "?key=",
+    "Token": "&token="
+
+  } ,
+  "headers": {
+    "Accept": "application/json"
+  },
+
+  "API": {
+    "id": "66ab77daa56d94527600a2b4"
+  },
+  "flight-numbers": {
+    "0": "KL1395",
+    "1": "DL 47"
+  },
+  "airports-codes": {
+    "0": "YYZ",
+    "1": "LGA",
+    "2": "EGLL"
+  },
+  "aircraft-models": {
+    "0": "Airbus A330-900"
+  },
+  "service": {
+    "0": "FlightSchedules",
+    "1": "FlightLiveUpdates"
+  },
+  "subscriptions_id": {
+    "0": "7c775ddc-c4f1-470b-acae-6a0dd580fc6a"
+  },
+  "results_titles": {
+    "0": "count"
+  },
+  "results": {
+    "0": "0",
+    "1": "1",
+    "2": "2",
+    "7": "7"
+  },
+  "search_by": {
+    "0": "reg",
+    "1": "icao24",
+    "2": "id"
+  },
+  "aircraft_registration": {
+    "0": "VP-BZP"
+  },
+  "headers_content_type": {
+    "x-rapidapi-key": "7f73870695msh813318c0f7804f7p13fae4jsnb29e43713856",
+    "x-rapidapi-host": "aerodatabox.p.rapidapi.com",
+    "Content-Type": "application/json"
+  },
+  "subscriber": {
+    "type": "WebHook",
+    "id": "https://webhook.site/687a0369-61ab-4be8-97d4-feef4d326fa2"
+  },
+  "time": {
+    "current_utc_time_for_relative": "2024-07-21 10:04Z",
+    "utc_time_for_time_range": "2024-04-05 01:00Z",
+    "dates_for_status_by_date": "2020-06-01/2024-10-10",
+    "fids_schedules_time_range": "2024-04-04T20:00/2024-04-05T08:00",
+    "date_of_flight_status_by_date": "2024-11-02"
+  },
+  "webhook_list_response": {
+    "id": "8253fdbb-a023-47ff-9a49-472c09934e1b",
+    "isActive": true
+  },
+  "airports_support_data": {
+    "0": 3142
+  },
+  "querystring": {
+    "1": {"lat": "40.688812", "lon": "-74.044369", "radiusKm": "50", "limit": "10",
+                        "withFlightInfoOnly": "false"},
+    "2": {"q": "123.123.123.123", "radiusKm": "50", "limit": "10", "withFlightInfoOnly": "true"},
+    "3": {"withAircraftImage": "false", "withLocation": "false"},
+    "4": {"withLeg": "true", "direction": "Both", "withCancelled": "true", "withCodeshared": "true",
+                        "withCargo": "true", "withPrivate": "true", "withLocation": "false"},
+    "5": {"offsetMinutes": "-120", "durationMinutes": "720", "withLeg": "true", "direction": "Both",
+                        "withCancelled": "true", "withCodeshared": "true", "withCargo": "true", "withPrivate": "true",
+                        "withLocation": "false"}
+
   }
+
 }
+

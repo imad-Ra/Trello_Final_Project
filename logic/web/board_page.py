@@ -20,9 +20,9 @@ class BoardPage(BaseAppPage):
     CONFIRM_DELETE_BOARD_BUTTON = '//button[@data-testid="close-board-delete-board-confirm-button"]'
     LISTS = '//h2[@data-testid="list-name"]'
     WORKSPACE_OPTIONS = '//a[@class="boards-page-board-section-header-options-item"]'
-    CARD_TEXT_AREA_INPUT = '//textarea[@data-testid="list-name-textarea"]'
-    ADD_CARD_BUTTON = '//button[text()="Add list"]'
-    ADDED_CARD_HEADER = '//div[@data-testid="list-header"]'
+    LIST_TEXT_AREA_INPUT = '//textarea[@data-testid="list-name-textarea"]'
+    ADD_LIST_BUTTON = '//button[text()="Add list"]'
+    ADDED_LIST_HEADER = '//div[@data-testid="list-header"]'
     def __init__(self, driver):
         """
             Initializes an instance of BoardPage with a WebDriver instance.
@@ -119,27 +119,27 @@ class BoardPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def fill_card_test_area_input(self, text):
+    def fill_list_test_area_input(self, text):
         """ Fills the card text area input with the given text. """
         WebDriverWait(self._driver, 30).until(
-            EC.visibility_of_element_located((By.XPATH, self.CARD_TEXT_AREA_INPUT)))
+            EC.visibility_of_element_located((By.XPATH, self.LIST_TEXT_AREA_INPUT)))
         try:
-            card_test_area_input = self._driver.find_element(By.XPATH, self.CARD_TEXT_AREA_INPUT)
+            card_test_area_input = self._driver.find_element(By.XPATH, self.LIST_TEXT_AREA_INPUT)
             card_test_area_input.send_keys(text)
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def add_card_button_click(self):
+    def add_list_button_click(self):
         """ Clicks on the add card button. """
         WebDriverWait(self._driver, 30).until(
-            EC.visibility_of_element_located((By.XPATH, self.ADD_CARD_BUTTON)))
+            EC.visibility_of_element_located((By.XPATH, self.ADD_LIST_BUTTON)))
         try:
-            add_card_button = self._driver.find_element(By.XPATH, self.ADD_CARD_BUTTON)
+            add_card_button = self._driver.find_element(By.XPATH, self.ADD_LIST_BUTTON)
             add_card_button.click()
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def add_card_flow(self, text):
+    def add_list_flow(self, text):
         """ Executes the flow to add a card with the given text. """
-        self.fill_card_test_area_input(text)
-        self.add_card_button_click()
+        self.fill_list_test_area_input(text)
+        self.add_list_button_click()
