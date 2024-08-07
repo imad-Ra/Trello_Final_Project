@@ -24,7 +24,7 @@ class SuccessfulLoginTest(unittest.TestCase):
         self.driver.quit()
     def test_login_invalid_account(self):
         # Test case for unsuccessful login
-        logging.info("UnSuccessful Login Test")
+        logging.info("Unsuccessful Login Test")
         first_page = FirstPage(self.driver)
         first_page.login_button_click()
         login_page = LoginPage(self.driver)

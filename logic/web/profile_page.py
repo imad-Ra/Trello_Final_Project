@@ -27,7 +27,7 @@ class ProfilePage(BaseAppPage):
                 max_length (int): Maximum length of the username.
                 letter_case (str): Letter case of the username ("lowercase" or "uppercase").
         """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.USERNAME_INPUT)))
         try:
             username_input = self._driver.find_element(By.XPATH, self.USERNAME_INPUT)
@@ -41,7 +41,7 @@ class ProfilePage(BaseAppPage):
 
     def profile_change_save_button_click(self):
         """ Clicks on the save button after changing the username in the profile. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.PROFILE_CHANGE_SAVE_BUTTON)))
         try:
             profile_change_save_button = self._driver.find_element(By.XPATH, self.PROFILE_CHANGE_SAVE_BUTTON)
@@ -77,7 +77,7 @@ class ProfilePage(BaseAppPage):
             Args:
                 username (str): The username to change back to.
         """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.USERNAME_INPUT)))
         try:
             username_input = self._driver.find_element(By.XPATH, self.USERNAME_INPUT)

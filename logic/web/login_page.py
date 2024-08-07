@@ -46,8 +46,8 @@ class LoginPage(BaseAppPage):
         try:
             continue_button = self._driver.find_element(By.XPATH, self.CONTINUE_BUTTON)
             continue_button.click()
-        except NoSuchElementException as e:
-            print("NoSuchElementException:", e)
+        except ElementClickInterceptedException as e:
+            print("ElementClickInterceptedException :", e)
 
     def login_flow(self, email, password):
         """

@@ -4,6 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
+from logic.api.boards_api import APIBoard
 from logic.web.board_page import BoardPage
 from logic.web.first_page import FirstPage
 from logic.web.home_page import HomePage
@@ -29,7 +30,8 @@ class HomePageTest(unittest.TestCase):
 
     def tearDown(self):
         # Clean up by deleting the created board and quitting the WebDriver session
-        BoardPage(self.driver).delete_board_flow()
+        # BoardPage(self.driver).delete_board_flow()
+        APIBoard(self.driver).delete_a_board()
         self.driver.quit()
 
     def test_create_board(self):

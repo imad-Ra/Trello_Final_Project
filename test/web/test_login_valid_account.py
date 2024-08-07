@@ -24,8 +24,6 @@ class SuccessfulLoginTest(unittest.TestCase):
         self.driver.quit()
 
     def test_login_successful(self):
-        # trello_u_ep = self.config["url_ep"]["TRELLO_URL_U_EP"]
-        # BOARDS_EP = self.config["url_ep"]["BOARDS_EP"]
 
         # Test case for successful login
         logging.info("Successful Login Test")

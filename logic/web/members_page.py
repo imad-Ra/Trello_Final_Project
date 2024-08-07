@@ -24,7 +24,7 @@ class MembersPage(BaseAppPage):
 
     def invite_members_button_click(self):
         """ Clicks on the invite members button. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.INVITE_MEMBERS_BUTTON)))
         try:
             invite_members_button = self._driver.find_element(By.XPATH, self.INVITE_MEMBERS_BUTTON)
@@ -34,7 +34,7 @@ class MembersPage(BaseAppPage):
 
     def fill_member_email_input(self, member_email):
         """ Fills the member email input with the given email and presses Enter. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.MEMBER_EMAIL_INPUT)))
         try:
             member_email_input = self._driver.find_element(By.XPATH, self.MEMBER_EMAIL_INPUT)
@@ -45,7 +45,7 @@ class MembersPage(BaseAppPage):
 
     def send_invite_button_click(self):
         """ Clicks on the send invite button. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.SEND_INVITE_BUTTON)))
         try:
             send_invite_button = self._driver.find_element(By.XPATH, self.SEND_INVITE_BUTTON)
@@ -55,7 +55,7 @@ class MembersPage(BaseAppPage):
 
     def get_members(self):
         """ Returns a list of members currently displayed on the page. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.MEMBERS)))
         try:
             members = self._driver.find_elements(By.XPATH, self.MEMBERS)
@@ -65,7 +65,7 @@ class MembersPage(BaseAppPage):
 
     def remove_member_button_click(self):
         """ Clicks on the remove member button. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.REMOVE_MEMBER_BUTTON)))
         try:
             remove_member_button = self._driver.find_element(By.XPATH, self.REMOVE_MEMBER_BUTTON)
@@ -75,7 +75,7 @@ class MembersPage(BaseAppPage):
 
     def confirm_remove_button_click(self):
         """ Clicks on the confirm remove button. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.CONFIRM_REMOVE_BUTTON)))
         try:
             confirm_remove_button = self._driver.find_element(By.XPATH, self.CONFIRM_REMOVE_BUTTON)

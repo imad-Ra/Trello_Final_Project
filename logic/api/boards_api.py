@@ -27,3 +27,7 @@ class APIBoard:
     def get_a_board(self):
         url = f"{self.url}/1/{self.boards}/{self.id}{self.Key_ep}{self.key}{self.Token_ep}{self.token}"
         return self._request.get_request(url , headers=self.headers)
+
+    def delete_a_board(self):
+        url = f"{self.url}/1/{self.boards}/{self.id}{self.Key_ep}{self.key}{self.Token_ep}{self.token}"
+        return self._request.delete_request(url, headers=self.headers)

@@ -32,6 +32,8 @@ class ProfilePageTest(unittest.TestCase):
     def tearDown(self):
         # Revert the username change after test execution
         self.profile_page.change_back_username(self.config['username'])
+        self.profile_page.profile_change_save_button_click()
+
 
         # Quit the WebDriver session
         self.driver.quit()
@@ -46,7 +48,7 @@ class ProfilePageTest(unittest.TestCase):
 
         # Wait until the username input field text changes from the original username
         WebDriverWait(self.driver, 15).until(
-            lambda driver:
+            lambda driver: #'Return True'
             self.driver.find_element(By.XPATH, self.profile_page.USERNAME_INPUT).text != self.config['username'])
 
         # Assert that the username has been changed successfully
