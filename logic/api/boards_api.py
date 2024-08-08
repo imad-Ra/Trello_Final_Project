@@ -57,3 +57,4 @@ class APIBoard:
         }
         query_params.update(params)
         return self._request.post_request(url, params=query_params)
+

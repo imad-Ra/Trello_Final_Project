@@ -16,7 +16,9 @@
     "TRELLO_URL_U_EP": "https://trello.com/u/",
     "Boards": "/boards",
     "Key": "?key=",
-    "Token": "&token="
+    "Token": "&token=",
+    "Cards": "/cards",
+    "Lists": "/lists"
 
   } ,
   "headers": {
@@ -27,6 +29,10 @@
     "id": "66b4812e1fe6ec8550025090",
     "name": "board for API testing",
     "name2": "board for API testing 2"
+  },
+  "List": {
+    "id": "66b513aecb02d7bd26dc4ced",
+    "name": "Test for Adding card (API)"
   }
 
 
