@@ -39,8 +39,8 @@ class ProfilePageTest(unittest.TestCase):
     def test_change_to_invalid_username(self):
         # Test case for attempting to change the username to an invalid one
         logging.info("Invalid Username Change Test")
-        self.home_page.header_account_button_click()
-        self.home_page.profile_and_visibility_button_click()
+        self.home_page.click_header_account_button()
+        self.home_page.click_profile_and_visibility_button()
         self.profile_page.fill_random_username_input(5, 20, "uppercase")
         self.profile_page.profile_change_save_button_click()
 

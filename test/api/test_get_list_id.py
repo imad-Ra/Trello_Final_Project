@@ -25,9 +25,6 @@ class TestGetList(unittest.TestCase):
         # Act
         response = self.api_request.get_a_list()
 
-        # Log response details
-        logging.info(f"Response data: {response.data}")
-
         # Assert
         self.assertTrue(response.ok)
         self.assertEqual(response.status_code, 200)
@@ -35,5 +32,3 @@ class TestGetList(unittest.TestCase):
 
         logging.info("Test ended successfully")
 
-if __name__ == '__main__':
-    unittest.main()

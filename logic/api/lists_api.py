@@ -19,10 +19,12 @@ class APIList:
         self.boards_ep = self.config["url_ep"]["Boards"]
         self.cards_ep = self.config["url_ep"]["Cards"]
         self.lists_ep = self.config["url_ep"]["Lists"]
+        self.one_ep = self.config["url_ep"]["1"]
+
 
 
 
     def get_a_list(self):
-        url = f"{self.url}/1/{self.boards_ep}/{self.board_id}{self.lists_ep}{self.Key_ep}{self.key}{self.Token_ep}{self.token}"
+        url = f"{self.url}{self.one_ep}{self.boards_ep}/{self.board_id}{self.lists_ep}{self.Key_ep}{self.key}{self.Token_ep}{self.token}"
         return self._request.get_request(url , headers=self.headers)
 

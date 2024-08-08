@@ -34,6 +34,3 @@ class TestCreateCard(unittest.TestCase):
         self.assertEqual(response.data["name"], self.random_name)
 
 
-
-if __name__ == '__main__':
-    unittest.main()

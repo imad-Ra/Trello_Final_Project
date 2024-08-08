@@ -18,7 +18,11 @@
     "Key": "?key=",
     "Token": "&token=",
     "Cards": "/cards",
-    "Lists": "/lists"
+    "Lists": "/lists",
+    "Members": "/members",
+    "Me": "/me",
+    "Search": "/search",
+    "1": "/1"
 
   } ,
   "headers": {

@@ -25,15 +25,10 @@ class TestGetSearchBoard(unittest.TestCase):
         # Act
         response = self.api_request.get_search_board(self.config["Board"]["name"])
 
-        # Log response details
-        logging.info(f"Response data: {response.data}")
 
         # Assert
         self.assertTrue(response.ok)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data["boards"][1]["id"], self.config["Board"]["id"])
 
-        logging.info("Test ended successfully")
 
-if __name__ == '__main__':
-    unittest.main()

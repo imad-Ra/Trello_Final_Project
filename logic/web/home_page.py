@@ -45,7 +45,7 @@ class HomePage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def create_button_click(self):
+    def click_create_button(self):
         """ Clicks on the create button. """
         WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.CREATE_BUTTON)))
@@ -60,9 +60,9 @@ class HomePage(BaseAppPage):
         """ Executes the flow to create a board with the given title. """
         self.create_board_button_click()
         self.fill_board_title_input(board_title)
-        self.create_button_click()
+        self.click_create_button()
 
-    def header_account_button_click(self):
+    def click_header_account_button(self):
         """ Clicks on the header account button. """
         WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.HEADER_ACCOUNT_BUTTON)))
@@ -72,7 +72,7 @@ class HomePage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def profile_and_visibility_button_click(self):
+    def click_profile_and_visibility_button(self):
         """ Clicks on the profile and visibility button. """
         WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.PROFILE_AND_VISIBILITY_BUTTON)))

@@ -36,15 +36,10 @@ class HomePageTest(unittest.TestCase):
         # Create board via UI
         self.home_page.create_board_button_click()
         self.home_page.fill_board_title_input(self.random_name)
-        self.home_page.create_button_click()
+        self.home_page.click_create_button()
 
 
         # Verify board creation via UI
         WebDriverWait(self.driver, 30).until(EC.url_contains(self.random_name))
         self.assertTrue(self.random_name in self.driver.current_url)
 
-
-
-
-if __name__ == '__main__':
-    unittest.main()

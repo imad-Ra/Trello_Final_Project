@@ -6,7 +6,7 @@ from infra.config_provider import ConfigProvider
 from logic.api.boards_api import APIBoard
 
 
-class TestGetAllBoards(unittest.TestCase):
+class TestGetBoard(unittest.TestCase):
 
     def setUp(self):
         #Arrange
@@ -28,11 +28,11 @@ class TestGetAllBoards(unittest.TestCase):
         logging.info(f"Response data: {response.data}")
 
         # Assert
-        self.assertEqual(response.data[2]["id"], self.config["Board"]["id"])
-        self.assertEqual(response.data[2]["name"], self.config["Board"]["name"])
-        self.assertEqual(response.data[3]["name"], self.config["Board"]["name2"])
+        self.assertTrue(response.ok)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]["id"], self.config["Board"]["id"])
+        self.assertEqual(response.data[0]["name"], self.config["Board"]["name"])
+        self.assertEqual(response.data[1]["name"], self.config["Board"]["name2"])
 
         logging.info("Test ended successfully")
 
-if __name__ == '__main__':
-    unittest.main()
