@@ -25,7 +25,7 @@ class HomePage(BaseAppPage):
 
     def create_board_button_click(self):
         """ Clicks on the create board button. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 15).until(
             EC.visibility_of_element_located((By.XPATH, self.CREATE_BOARD_BUTTON)))
         try:
             create_board_button = self._driver.find_element(By.XPATH, self.CREATE_BOARD_BUTTON)
