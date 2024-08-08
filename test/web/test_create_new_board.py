@@ -29,18 +29,15 @@ class HomePageTest(unittest.TestCase):
         self.random_name = Utils.generate_random_lowercase_string(3,5)
 
     def tearDown(self):
-        response = self.api_board.get_search_board(self.random_name)
-        print(response.data['boards'])
-        for board in response.data['boards']:
-            if board['name'] == self.random_name:
-                self.api_board.delete_a_board(board['id'])
         self.driver.quit()
+        self.api_board.delete_board_by_name(self.random_name)
 
     def test_create_board(self):
         # Create board via UI
         self.home_page.create_board_button_click()
         self.home_page.fill_board_title_input(self.random_name)
         self.home_page.create_button_click()
+
 
         # Verify board creation via UI
         WebDriverWait(self.driver, 30).until(EC.url_contains(self.random_name))

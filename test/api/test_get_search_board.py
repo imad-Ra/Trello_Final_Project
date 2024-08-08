@@ -6,7 +6,7 @@ from infra.config_provider import ConfigProvider
 from logic.api.boards_api import APIBoard
 
 
-class TestGetBoard(unittest.TestCase):
+class TestGetSearchBoard(unittest.TestCase):
 
     def setUp(self):
         #Arrange
@@ -17,13 +17,13 @@ class TestGetBoard(unittest.TestCase):
 
     def test_get_board(self):
         """
-        Tests the API endpoint for retrieving a board
+        Tests the API endpoint for retrieving a board by id
         """
         logging.info("Starting the 'Get Board' test")
 
 
         # Act
-        response = self.api_request.get_a_board()
+        response = self.api_request.get_search_board(self.config["Board"]["name"])
 
         # Log response details
         logging.info(f"Response data: {response.data}")
@@ -31,7 +31,7 @@ class TestGetBoard(unittest.TestCase):
         # Assert
         self.assertTrue(response.ok)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data["id"], self.config["API"]["id"])
+        self.assertEqual(response.data["boards"][1]["id"], self.config["Board"]["id"])
 
         logging.info("Test ended successfully")
 

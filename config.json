@@ -23,8 +23,10 @@
     "Accept": "application/json"
   },
 
-  "API": {
-    "id": "66b4812e1fe6ec8550025090"
+  "Board": {
+    "id": "66b4812e1fe6ec8550025090",
+    "name": "board for API testing",
+    "name2": "board for API testing 2"
   }
 
 

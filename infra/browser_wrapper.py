@@ -31,5 +31,6 @@ class BrowserWrapper:
         else:
             print("browser not found")
 
+        self._driver.maximize_window()
         self._driver.get(url)
         return self._driver

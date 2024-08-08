@@ -1,3 +1,5 @@
+import time
+
 from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -25,7 +27,7 @@ class HomePage(BaseAppPage):
 
     def create_board_button_click(self):
         """ Clicks on the create board button. """
-        WebDriverWait(self._driver, 15).until(
+        WebDriverWait(self._driver, 30).until(
             EC.visibility_of_element_located((By.XPATH, self.CREATE_BOARD_BUTTON)))
         try:
             create_board_button = self._driver.find_element(By.XPATH, self.CREATE_BOARD_BUTTON)
@@ -35,7 +37,7 @@ class HomePage(BaseAppPage):
 
     def fill_board_title_input(self, board_title):
         """ Fills the board title input with the given title. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.BOARD_TITLE_INPUT)))
         try:
             board_title_input = self._driver.find_element(By.XPATH, self.BOARD_TITLE_INPUT)
@@ -45,13 +47,14 @@ class HomePage(BaseAppPage):
 
     def create_button_click(self):
         """ Clicks on the create button. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.CREATE_BUTTON)))
         try:
             create_button = self._driver.find_element(By.XPATH, self.CREATE_BUTTON)
             create_button.click()
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
+        time.sleep(3) #For API convertion
 
     def create_board_flow(self, board_title):
         """ Executes the flow to create a board with the given title. """
@@ -61,7 +64,7 @@ class HomePage(BaseAppPage):
 
     def header_account_button_click(self):
         """ Clicks on the header account button. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.HEADER_ACCOUNT_BUTTON)))
         try:
             header_account_button = self._driver.find_element(By.XPATH, self.HEADER_ACCOUNT_BUTTON)
@@ -71,7 +74,7 @@ class HomePage(BaseAppPage):
 
     def profile_and_visibility_button_click(self):
         """ Clicks on the profile and visibility button. """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.PROFILE_AND_VISIBILITY_BUTTON)))
         try:
             profile_and_visibility_button = self._driver.find_element(By.XPATH, self.PROFILE_AND_VISIBILITY_BUTTON)
@@ -80,11 +83,11 @@ class HomePage(BaseAppPage):
             print("NoSuchElementException:", e)
 
     def new_board_is_visible(self):
-        new_board = WebDriverWait(self._driver, 10).until(
+        new_board = WebDriverWait(self._driver, 25).until(
             EC.presence_of_element_located((By.XPATH, self.NEW_BOARD)))
         return new_board.is_displayed()
 
     def get_board_name(self):
-        board_name = WebDriverWait(self._driver, 10).until(
+        board_name = WebDriverWait(self._driver, 25).until(
             EC.presence_of_element_located((By.XPATH, self.BOARD_NAME)))
         return board_name.text
