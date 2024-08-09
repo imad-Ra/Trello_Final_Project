@@ -18,26 +18,26 @@ This project delivers a robust automated testing suite for Trello, encompassing 
 
 ## 🛠️ Setup
 1. Clone the repository:
-
+   bash
    git clone https://github.com/imad-Ra/Trello_Final_Project.git
    cd Trello_Final_Project
 
 Install dependencies:
-   pip install -r requirements.txt
+bashCopypip install -r requirements.txt
 
 Configure environment variables:
-   cp .env.example .env
+bashCopycp .env.example .env
 # Edit .env with your Trello API key and token
 
 
 ▶️ Running Tests
 UI Tests:
-    test/web
+bashCopypytest ui/tests
 API Tests:
-    tests/api
+bashCopypytest api/tests
 All Tests with Allure Report:
-    test --alluredir=./reports
-    allure serve reports
+bashCopypytest --alluredir=./reports
+allure serve reports
 🛠️ Tools and Technologies
 
 IDE: PyCharm 2024.1.1
@@ -54,10 +54,10 @@ Bug Tracking: Jira
 To set up and use Allure:
 
 Install Allure:
-    npm install -g allure-commandline
+bashCopynpm install -g allure-commandline
 
 Run tests with Allure:
-    test --alluredir=./reports
+bashCopypytest --alluredir=./reports
 allure serve reports
 
 
@@ -75,4 +75,7 @@ For inquiries or suggestions, please reach out:
 
 👤 Name: Imad Rabah
 📧 Email: imadrabah123@gmail.com
-🐙 GitHub: ImadRabah [https://github.com/imad-Ra?tab=repositories]
+🐙 GitHub: ImadRabah
+
+
+![Trello Test Management](https://github.com/imad-Ra/Trello_Final_Project/raw/master/image.png)
