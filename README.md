@@ -22,34 +22,39 @@ This project is a comprehensive automation suite for Trello, designed to validat
    ```bash
    git clone https://github.com/imad-Ra/Trello_Final_Project.git
    cd Trello_Final_Project
-Install Dependencies:
+   ```
+   
+**Install Dependencies**:
 
-bash
-Copy code
+```bash
 pip install -r requirements.txt
-Configure Environment Variables:
+```
 
-bash
-Copy code
+Configure Environment Variables:
+    
+```bash
 cp .env.example .env
+```
+
 # Edit .env to include your Trello API key and token
 ▶️ Running Tests
 UI Tests:
 
-bash
-Copy code
-pytest ui/tests
+```bash
+    pytest test/web
+```
 API Tests:
 
-bash
-Copy code
+```bash
 pytest api/tests
+```
+
 Run All Tests with Allure Reporting:
 
-bash
-Copy code
+```bash
 pytest --alluredir=./reports
 allure serve reports
+```
 🛠️ Tools and Technologies
 IDE: PyCharm 2024.1.1
 Automation Framework: Selenium 4.22.0
@@ -60,34 +65,44 @@ Test Framework: Pytest
 Reporting: Allure Framework
 Version Control: Git
 Bug Tracking: Jira
-📊 Allure Reporting
-To use Allure reporting:
+
+## 📊 Allure Reporting
+
+**To use Allure reporting**:
 
 Install Allure:
 
-bash
-Copy code
+```bash
 npm install -g allure-commandline
+```
+
 Run Tests and Serve Report:
 
-bash
-Copy code
+```bash
 pytest --alluredir=./reports
 allure serve reports
-🤝 Contributing
+```
+
+## 🤝 Contributing
 We welcome contributions! Follow these steps:
 
 Fork the repository.
-Create a feature branch: git checkout -b feature/NewFeature.
-Commit your changes: git commit -am 'Add NewFeature'.
-Push to the branch: git push origin feature/NewFeature.
+Create a feature branch:
+``` git checkout -b feature/NewFeature.```
+
+Commit your changes:
+```git commit -am 'Add NewFeature'.```
+
+Push to the branch:
+```git push origin feature/NewFeature.```
+
 Submit a pull request.
-📞 Contact
+## 📞 Contact
 For questions or suggestions, feel free to reach out:
 
 Name: Imad Rabah
 Email: imadrabah123@gmail.com
-GitHub: ImadRabah
+GitHub: ImadRabah [https://github.com/imad-Ra]
 
 ```markdown
    ![Trello Test Management](./image.png)
