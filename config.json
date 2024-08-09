@@ -22,7 +22,8 @@
     "Members": "/members",
     "Me": "/me",
     "Search": "/search",
-    "1": "/1"
+    "1": "/1",
+    "idBoard": "/idBoard"
 
   } ,
   "headers": {
@@ -32,11 +33,14 @@
   "Board": {
     "id": "66b4812e1fe6ec8550025090",
     "name": "board for API testing",
+    "id2": "66b4a53c686f612b6ae3277d",
     "name2": "board for API testing 2"
   },
   "List": {
     "id": "66b513aecb02d7bd26dc4ced",
-    "name": "Test for Adding card (API)"
+    "name": "Test for Adding card (API)",
+    "id2": "66b62c3d17928264ef4c859d",
+    "name2": "TEST TEST"
   }
 
 

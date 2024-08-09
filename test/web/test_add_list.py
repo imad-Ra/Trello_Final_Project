@@ -1,5 +1,6 @@
 import logging
 import unittest
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,37 +10,45 @@ from logic.web.board_page import BoardPage
 from logic.web.first_page import FirstPage
 from logic.web.home_page import HomePage
 from logic.web.login_page import LoginPage
+from infra.jira_handler import JiraHandler
 
 
-class BoardPageTest(unittest.TestCase):
-
+# Allure feature annotation
+@allure.feature("Add list to new board - test")
+class AddList(unittest.TestCase):
     def setUp(self):
-        # Initialize browser and load configuration
+        # Arrange
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_from_file()
+        self.jira_handler = JiraHandler()
 
-        # Start browser session and navigate to the specified URL
         self.driver = self.browser.get_driver(self.config['url'])
-        FirstPage(self.driver).login_button_click()
+        FirstPage(self.driver).click_login_button()
         LoginPage(self.driver).login_flow(self.config['email'], self.config['password'])
         HomePage(self.driver).create_board_flow(self.config['board_title'])
-        self.driver.implicitly_wait(15)
 
-        # Initialize BoardPage for testing
+        # Arrange
         self.board_page = BoardPage(self.driver)
 
     def tearDown(self):
-        # Delete the board
+        # Act
         self.board_page.delete_board_flow()
-
-        # Quit the WebDriver session after tests
         self.driver.quit()
 
-
     def test_add_list(self):
-        # Test case to add a card to the board and verify its presence
-        logging.info("Add Card Test")
+        logging.info("Test start")
         self.board_page.fill_list_test_area_input(self.config['list_text'])
-        self.board_page.add_list_button_click()
-        WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.XPATH, self.board_page.ADDED_LIST_HEADER)))
+        self.board_page.click_add_list_button()
+
+        # Allure - attach a screenshot of the added list
+        allure.attach(self.driver.get_screenshot_as_png(), name="List Added",
+                      attachment_type=allure.attachment_type.PNG)
+
+        # Assert
+        WebDriverWait(self.driver, 30).until(
+            EC.visibility_of_element_located((By.XPATH, self.board_page.ADDED_LIST_HEADER)))
         self.assertTrue(self.driver.find_element(By.XPATH, self.board_page.ADDED_LIST_HEADER).is_displayed())
+
+
+if __name__ == '__main__':
+    unittest.main()

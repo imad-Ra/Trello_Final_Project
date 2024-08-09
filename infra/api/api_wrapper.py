@@ -40,3 +40,12 @@ class APIWrapper:
         except requests.exceptions.RequestException as e:
             # Handle any request exceptions
             return ResponseWrapper(ok=False, status_code=None, data={"error": str(e)})
+
+    @staticmethod
+    def put_request(url, headers=None, body=None, params=None):
+        try:
+            result = requests.put(url, headers=headers, json=body, params=params)
+            return ResponseWrapper(ok=result.ok, status_code=result.status_code, data=result.json())
+        except requests.exceptions.RequestException as e:
+            # Handle any request exceptions
+            return ResponseWrapper(ok=False, status_code=None, data={"error": str(e)})

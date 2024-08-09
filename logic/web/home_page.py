@@ -25,7 +25,7 @@ class HomePage(BaseAppPage):
         """
         super().__init__(driver)
 
-    def create_board_button_click(self):
+    def click_create_board_button(self):
         """ Clicks on the create board button. """
         WebDriverWait(self._driver, 30).until(
             EC.visibility_of_element_located((By.XPATH, self.CREATE_BOARD_BUTTON)))
@@ -58,7 +58,7 @@ class HomePage(BaseAppPage):
 
     def create_board_flow(self, board_title):
         """ Executes the flow to create a board with the given title. """
-        self.create_board_button_click()
+        self.click_create_board_button()
         self.fill_board_title_input(board_title)
         self.click_create_button()
 

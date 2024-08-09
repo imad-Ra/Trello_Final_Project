@@ -18,6 +18,6 @@ class FirstPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def login_button_click(self):
+    def click_login_button(self):
         """ Clicks on the login button. """
         self._login_button.click()

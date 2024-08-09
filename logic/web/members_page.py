@@ -63,7 +63,7 @@ class MembersPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def remove_member_button_click(self):
+    def click_remove_member_button(self):
         """ Clicks on the remove member button. """
         WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, self.REMOVE_MEMBER_BUTTON)))
@@ -95,5 +95,5 @@ class MembersPage(BaseAppPage):
 
     def workspace_remove_member_flow(self):
         """ Executes the flow to remove a member from the workspace. """
-        self.remove_member_button_click()
+        self.click_remove_member_button()
         self.confirm_remove_button_click()

@@ -39,7 +39,7 @@ class LoginPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def continue_button_click(self):
+    def click_continue_button(self):
         """ Clicks on the continue button. """
         WebDriverWait(self._driver, 15).until(
             EC.visibility_of_element_located((By.XPATH, self.CONTINUE_BUTTON)))
@@ -57,6 +57,6 @@ class LoginPage(BaseAppPage):
                 password: Password to use for login.
         """
         self.fill_login_email_input(email)
-        self.continue_button_click()
+        self.click_continue_button()
         self.fill_login_password_input(password)
-        self.continue_button_click()
+        self.click_continue_button()

@@ -1,3 +1,5 @@
+import time
+
 from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -23,6 +25,7 @@ class BoardPage(BaseAppPage):
     LIST_TEXT_AREA_INPUT = '//textarea[@data-testid="list-name-textarea"]'
     ADD_LIST_BUTTON = '//button[text()="Add list"]'
     ADDED_LIST_HEADER = '//div[@data-testid="list-header"]'
+
     def __init__(self, driver):
         """
             Initializes an instance of BoardPage with a WebDriver instance.
@@ -31,7 +34,7 @@ class BoardPage(BaseAppPage):
         """
         super().__init__(driver)
 
-    def header_menu_button_click(self):
+    def click_header_menu_button(self):
         """ Clicks on the header menu button in the board page. """
         WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.HEADER_MENU_BUTTON)))
@@ -41,7 +44,7 @@ class BoardPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def close_board_button_click(self):
+    def click_close_board_button(self):
         """ Clicks on the close board button. """
         WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.CLOSE_BOARD_BUTTON)))
@@ -51,7 +54,7 @@ class BoardPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def confirm_close_board_button_click(self):
+    def click_confirm_close_board_button(self):
         """ Clicks on the confirm close board button. """
         WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.CONFIRM_CLOSE_BOARD_BUTTON)))
@@ -61,7 +64,7 @@ class BoardPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def delete_board_button_click(self):
+    def click_delete_board_button(self):
         """ Clicks on the delete board button. """
         WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.DELETE_BOARD_BUTTON)))
@@ -71,7 +74,7 @@ class BoardPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def confirm_delete_board_button_click(self):
+    def click_confirm_delete_board_button(self):
         """ Clicks on the confirm delete board button. """
         WebDriverWait(self._driver, 25).until(
             EC.visibility_of_element_located((By.XPATH, self.CONFIRM_DELETE_BOARD_BUTTON)))
@@ -83,11 +86,12 @@ class BoardPage(BaseAppPage):
 
     def delete_board_flow(self):
         """ Executes the flow to delete a board. """
-        self.header_menu_button_click()
-        self.close_board_button_click()
-        self.confirm_close_board_button_click()
-        self.delete_board_button_click()
-        self.confirm_delete_board_button_click()
+        time.sleep(3)  #For presenatiton only !
+        self.click_header_menu_button()
+        self.click_close_board_button()
+        self.click_confirm_close_board_button()
+        self.click_delete_board_button()
+        self.click_confirm_delete_board_button()
 
     def move_list(self):
         """ Moves a list using drag and drop. """
@@ -129,7 +133,7 @@ class BoardPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def add_list_button_click(self):
+    def click_add_list_button(self):
         """ Clicks on the add card button. """
         WebDriverWait(self._driver, 30).until(
             EC.visibility_of_element_located((By.XPATH, self.ADD_LIST_BUTTON)))
@@ -142,4 +146,15 @@ class BoardPage(BaseAppPage):
     def add_list_flow(self, text):
         """ Executes the flow to add a card with the given text. """
         self.fill_list_test_area_input(text)
-        self.add_list_button_click()
+        self.click_add_list_button()
+
+    def get_board_id(self):
+        # Assuming the board ID is in the URL
+        current_url = self._driver.current_url
+        return current_url.split('/')[-1]
+
+    def wait_for_list_and_verify(self, list_name):
+        WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.LISTS)))
+        lists = self._driver.find_elements(By.XPATH, self.LISTS)
+        list_names = [list_elem.text for list_elem in lists]
+        return list_name in list_names
