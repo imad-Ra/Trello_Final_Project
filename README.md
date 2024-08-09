@@ -35,8 +35,7 @@ Configure Environment Variables:
 ```bash
 cp .env.example .env
 ```
-
-# Edit .env to include your Trello API key and token
+ **Edit .env to include your Trello API key and token**
 ## ▶️ Running Tests
 UI Tests:
 
