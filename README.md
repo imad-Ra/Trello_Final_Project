@@ -18,11 +18,11 @@ This project is a comprehensive automation suite for Trello, designed to validat
 
 ## 🛠️ Setup Instructions
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/imad-Ra/Trello_Final_Project.git
-   cd Trello_Final_Project
-   ```
+ **Clone the Repository**:
+```bash
+git clone https://github.com/imad-Ra/Trello_Final_Project.git
+cd Trello_Final_Project
+```
    
 **Install Dependencies**:
 
@@ -37,7 +37,7 @@ cp .env.example .env
 ```
 
 # Edit .env to include your Trello API key and token
-▶️ Running Tests
+## ▶️ Running Tests
 UI Tests:
 
 ```bash
@@ -55,16 +55,16 @@ Run All Tests with Allure Reporting:
 pytest --alluredir=./reports
 allure serve reports
 ```
-🛠️ Tools and Technologies
-IDE: PyCharm 2024.1.1
-Automation Framework: Selenium 4.22.0
-Programming Language: Python 3.8+
-Browser: Google Chrome 126.0.6478.127
-API Testing: Requests library
-Test Framework: Pytest
-Reporting: Allure Framework
-Version Control: Git
-Bug Tracking: Jira
+## 🛠️ Tools and Technologies
+- IDE: PyCharm 2024.1.1
+- Automation Framework: Selenium 4.22.0
+- Programming Language: Python 3.8+
+- Browser: Google Chrome 126.0.6478.127
+- API Testing: Requests library
+- Test Framework: Pytest
+- Reporting: Allure Framework
+- Version Control: Git
+- Bug Tracking: Jira
 
 ## 📊 Allure Reporting
 
@@ -100,10 +100,9 @@ Submit a pull request.
 ## 📞 Contact
 For questions or suggestions, feel free to reach out:
 
-Name: Imad Rabah
-Email: imadrabah123@gmail.com
-GitHub: ImadRabah [https://github.com/imad-Ra]
+- Name: Imad Rabah
+- Email: imadrabah123@gmail.com
+- GitHub: ImadRabah [https://github.com/imad-Ra]
 
-```markdown
-   ![Trello Test Management](./image.png)
+
  
