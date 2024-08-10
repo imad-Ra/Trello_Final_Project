@@ -32,3 +32,4 @@ class ConfigProvider:
                 return json.load(file)
         except FileNotFoundError:
             print(f"File {file} not found. Starting with an empty library.")
+

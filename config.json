@@ -24,12 +24,10 @@
     "Search": "/search",
     "1": "/1",
     "idBoard": "/idBoard"
-
-  } ,
+  },
   "headers": {
     "Accept": "application/json"
   },
-
   "Board": {
     "id": "66b4812e1fe6ec8550025090",
     "name": "board for API testing",
@@ -41,8 +39,35 @@
     "name": "Test for Adding card (API)",
     "id2": "66b62c3d17928264ef4c859d",
     "name2": "TEST TEST"
-  }
-
-
+  },
+  "lists": [
+    {
+      "id": "66b513aecb02d7bd26dc4ced",
+      "name": "Test for Adding card (API)",
+      "closed": false,
+      "color": null,
+      "idBoard": "66b4812e1fe6ec8550025090",
+      "pos": 28672,
+      "subscribed": false,
+      "softLimit": null,
+      "type": null,
+      "datasource": {
+        "filter": false
+      }
+    },
+    {
+      "id": "66b62c3d17928264ef4c859d",
+      "name": "TEST TEST",
+      "closed": false,
+      "color": "gray",
+      "idBoard": "66b4812e1fe6ec8550025090",
+      "pos": 40960,
+      "subscribed": false,
+      "softLimit": null,
+      "type": null,
+      "datasource": {
+        "filter": false
+      }
+    }
+  ]
 }
-
