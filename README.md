@@ -72,7 +72,6 @@ pytest --alluredir=./reports
 allure serve reports
 ```
 ## 🛠️ Tools and Technologies
-## 🛠️ Tools and Technologies
 - **IDE**: PyCharm 2024.1.1  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/PyCharm-Dark.svg" width="20">
 - **Automation Framework**: Selenium 4.22.0  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Selenium.svg" width="20">
 - **Programming Language**: Python 3.8+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Python-Dark.svg" width="20">
