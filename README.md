@@ -105,6 +105,7 @@ In addition to the code, this project includes:
 * Pytest
 * Allure Framework
 * Jira
+* Postman
 
 
 ## 🤝 Contributing
