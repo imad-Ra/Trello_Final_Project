@@ -1,6 +1,22 @@
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Selenium](https://img.shields.io/badge/selenium-4.22.0-green.svg)
 # 📑 Trello Automation Project
 
 ![Trello Test Management](./image.png)
+
+## Table of Contents
+- [Project Overview](#-project-overview)
+- [Features](#-features)
+- [Test Scope](#-test-scope)
+- [Setup Instructions](#️-setup-instructions)
+- [Running Tests](#️-running-tests)
+- [Tools and Technologies](#️-tools-and-technologies)
+- [Allure Reporting](#-allure-reporting)
+- [API Reference](#-api-reference)
+- [Documentation](#-documentation)
+- [Acknowledgements](#-acknowledgements)
+- [Contributing](#-contributing)
+- [Contact](#-contact)
 
 ## 📌 Project Overview
 This project is a comprehensive automation suite for Trello, designed to validate both its UI and API functionalities. By utilizing industry-standard tools, the suite ensures the stability and performance of Trello's essential features.
@@ -10,6 +26,7 @@ This project is a comprehensive automation suite for Trello, designed to validat
 - **API Testing**: Testing key Trello API endpoints using the Requests library.
 - **Integrated Reporting**: Detailed test reports generated through the Allure framework.
 - **Jira Integration**: Seamless test management via Jira.
+
 
 ## 🎯 Test Scope
 - **UI Tests**: Verifying core functionalities of Trello’s user interface.
@@ -59,7 +76,8 @@ allure serve reports
 - **Automation Framework**: Selenium 4.22.0
 - **Programming Language**: Python 3.8+
 - **Browser**: Google Chrome 126.0.6478.127
-- **API Testing**: Requests library
+- **WebDriver**: Chrome WebDriver 127.0.6533.99
+- **API Testing**: Requests library, Postman version 11.2.0
 - **Test Framework**: Pytest
 - **Reporting**: Allure Framework
 - **Version Control**: Git
@@ -126,8 +144,7 @@ Submit a pull request.
 For questions or suggestions, feel free to reach out:
 
 - **Name**: Imad Rabah
-- **Email**: imadrabah123@gmail.com
-- **GitHub**: ImadRabah [https://github.com/imad-Ra]
-
-
+- **Email**: <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Gmail-Dark.svg" width="16"> imadrabah123@gmail.com
+- **GitHub**: <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Github-Dark.svg" width="16"> [ImadRabah](https://github.com/imad-Ra)
+- **LinkedIn**: <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/LinkedIn.svg" width="16"> [Imad Rabah](www.linkedin.com/in/imad-rabah-52795b23a)
  
