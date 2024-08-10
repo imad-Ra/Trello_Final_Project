@@ -72,16 +72,17 @@ pytest --alluredir=./reports
 allure serve reports
 ```
 ## 🛠️ Tools and Technologies
-- **IDE**: PyCharm 2024.1.1
-- **Automation Framework**: Selenium 4.22.0
-- **Programming Language**: Python 3.8+
-- **Browser**: Google Chrome 126.0.6478.127
+## 🛠️ Tools and Technologies
+- **IDE**: PyCharm 2024.1.1  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/PyCharm-Dark.svg" width="20">
+- **Automation Framework**: Selenium 4.22.0  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Selenium.svg" width="20">
+- **Programming Language**: Python 3.8+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Python-Dark.svg" width="20">
+- **Browser**: Google Chrome 126.0.6478.127 
 - **WebDriver**: Chrome WebDriver 127.0.6533.99
-- **API Testing**: Requests library, Postman version 11.2.0
-- **Test Framework**: Pytest
+- **API Testing**: Requests library, Postman 11.2.0  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Postman.svg" width="20">
+- **Test Framework**: Pytest 
 - **Reporting**: Allure Framework
-- **Version Control**: Git
-- **Bug Tracking**: Jira
+- **Version Control**: Git <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Git.svg" width="20">
+- **Bug Tracking**: Jira 
 
 ## 📊 Allure Reporting
 
