@@ -1,4 +1,4 @@
-# 🚀 Trello Automation Suite
+# 📑 Trello Automation Project
 
 ![Trello Test Management](./image.png)
 
@@ -40,7 +40,7 @@ cp .env.example .env
 UI Tests:
 
 ```bash
-    pytest test/web
+pytest test/web
 ```
 API Tests:
 
@@ -55,15 +55,15 @@ pytest --alluredir=./reports
 allure serve reports
 ```
 ## 🛠️ Tools and Technologies
-- IDE: PyCharm 2024.1.1
-- Automation Framework: Selenium 4.22.0
-- Programming Language: Python 3.8+
-- Browser: Google Chrome 126.0.6478.127
-- API Testing: Requests library
-- Test Framework: Pytest
-- Reporting: Allure Framework
-- Version Control: Git
-- Bug Tracking: Jira
+- **IDE**: PyCharm 2024.1.1
+- **Automation Framework**: Selenium 4.22.0
+- **Programming Language**: Python 3.8+
+- **Browser**: Google Chrome 126.0.6478.127
+- **API Testing**: Requests library
+- **Test Framework**: Pytest
+- **Reporting**: Allure Framework
+- **Version Control**: Git
+- **Bug Tracking**: Jira
 
 ## 📊 Allure Reporting
 
@@ -79,8 +79,33 @@ Run Tests and Serve Report:
 
 ```bash
 pytest --alluredir=./reports
+```
+
+```bash
 allure serve reports
 ```
+
+## 🔗 API Reference
+This project utilizes the official Trello REST API. For detailed API documentation, refer to:
+[Trello REST API Documentation](https://developer.atlassian.com/cloud/trello/rest/api-group-applications/#api-group-applications)
+
+Our test suite covers key endpoints from this API, ensuring comprehensive validation of Trello's functionality.
+
+## 📘 Documentation
+In addition to the code, this project includes:
+* Software Test Plan (STP): Detailed testing strategy and approach
+* Detailed test cases documented in Word (STD file)
+* Postman collections for API testing 
+* Comprehensive README for project overview and setup instructions
+
+
+## 🙏 Acknowledgements
+* Trello API
+* Selenium
+* Pytest
+* Allure Framework
+* Jira
+
 
 ## 🤝 Contributing
 We welcome contributions! Follow these steps:
@@ -99,9 +124,9 @@ Submit a pull request.
 ## 📞 Contact
 For questions or suggestions, feel free to reach out:
 
-- Name: Imad Rabah
-- Email: imadrabah123@gmail.com
-- GitHub: ImadRabah [https://github.com/imad-Ra]
+- **Name**: Imad Rabah
+- **Email**: imadrabah123@gmail.com
+- **GitHub**: ImadRabah [https://github.com/imad-Ra]
 
 
  
