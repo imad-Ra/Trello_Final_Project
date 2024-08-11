@@ -1,5 +1,10 @@
 import unittest
+from selenium.webdriver.support import expected_conditions as EC
+
+
 import allure
+from selenium.webdriver.support.wait import WebDriverWait
+
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
 from infra.api.api_wrapper import APIWrapper
@@ -59,10 +64,7 @@ class NewBoardTest(unittest.TestCase):
         # Assert
         try:
             self.assertTrue(board_loaded, "Board did not load successfully")
-            self.assertTrue(self.random_name in self.driver.current_url, "Board name not found in URL")
+            self.assertIn(self.random_name, self.driver.current_url, "Board name not found in URL")
         except AssertionError as e:
             self.fail = True
             raise
-
-if __name__ == '__main__':
-    unittest.main()

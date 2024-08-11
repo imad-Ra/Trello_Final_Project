@@ -146,15 +146,6 @@ class BoardPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    # def add_list_flow(self, text):
-    #     """ Executes the flow to add a card with the given text. """
-    #     self.fill_list_test_area_input(text)
-    #     self.click_add_list_button()
-    #
-    # def get_board_id(self):
-    #     # Assuming the board ID is in the URL
-    #     current_url = self._driver.current_url
-    #     return current_url.split('/')[-1]
 
     def wait_for_list_and_verify(self, list_name):
         WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.LISTS)))
@@ -163,19 +154,17 @@ class BoardPage(BaseAppPage):
         return list_name in list_names
 
 
-    def wait_for_board_to_load(self, board_name):
+    def wait_for_board_to_load(self, board_name, timeout=60):
         try:
-            # First, wait for the URL to contain the board name
-            WebDriverWait(self._driver, 40).until(EC.url_contains(board_name))
+            # Add a sleep here to allow the page to load
+            time.sleep(5)  # Wait for 5 seconds
 
-            # Then, add a sleep to ensure the page is fully loaded
-            time.sleep(8)
-
-            # Finally, wait for a key element on the board page
-            WebDriverWait(self._driver, 40).until(
+            WebDriverWait(self._driver, timeout).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, ".board-header"))
             )
-
+            WebDriverWait(self._driver, timeout).until(
+                EC.title_contains(board_name)
+            )
             return True
-        except:
+        except TimeoutException:
             return False
