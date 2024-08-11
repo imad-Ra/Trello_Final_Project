@@ -58,15 +58,6 @@ class ProfileValidUsernameChange(unittest.TestCase):
                       attachment_type=allure.attachment_type.PNG)
 
 
-        # # Jira: Create a bug report if the test fails
-        # if self.driver.find_element(By.XPATH, self.profile_page.USERNAME_INPUT).text == self.config['username']:
-        #     bug_summary = "Valid username change failed"
-        #     bug_description = "The 'Change Username' feature is not working as expected."
-        #     issue = self.jira_handler.create_issue(bug_summary, bug_description)
-        #     self.assertIsNotNone(issue)
-        #     self.assertEqual(issue.fields.summary, bug_summary)
-        #     self.assertEqual(issue.fields.description, bug_description)
-        #     self.assertEqual(issue.fields.issuetype.name, "Bug")
 
 if __name__ == '__main__':
     unittest.main()

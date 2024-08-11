@@ -57,13 +57,3 @@ class ProfileInvalidUsernameChange(unittest.TestCase):
 
 
 
-        # # Jira: Create a bug report if the test fails
-        # if not self.driver.find_element(By.XPATH, self.profile_page.ERROR_MESSAGE).is_displayed():
-        #     bug_summary = "Invalid username change failed"
-        #     bug_description = "The 'Change Username' feature is not working as expected."
-        #     issue = self.jira_handler.create_issue(bug_summary, bug_description)
-        #     self.assertIsNotNone(issue)
-        #     self.assertEqual(issue.fields.summary, bug_summary)
-        #     self.assertEqual(issue.fields.description, bug_description)
-        #     self.assertEqual(issue.fields.issuetype.name, "Bug")
-

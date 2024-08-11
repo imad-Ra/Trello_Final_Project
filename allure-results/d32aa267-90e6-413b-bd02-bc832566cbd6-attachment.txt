@@ -1,0 +1,2 @@
+[33mWARNING [0m selenium.webdriver.common.selenium_manager:selenium_manager.py:135 The chromedriver version (126.0.6478.126) detected in PATH at chromedriver.EXE might not be compatible with the detected chrome version (127.0.6533.100); currently, chromedriver 127.0.6533.99 is recommended for chrome 127.*, so it is advised to delete the driver in PATH and retry
+[33mWARNING [0m infra.jira_handler:jira_handler.py:31 Bug issue type not found. Using default issue type: Task

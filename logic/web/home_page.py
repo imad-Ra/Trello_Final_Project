@@ -27,7 +27,7 @@ class HomePage(BaseAppPage):
 
     def click_create_board_button(self):
         """ Clicks on the create board button. """
-        WebDriverWait(self._driver, 30).until(
+        WebDriverWait(self._driver, 40).until(
             EC.visibility_of_element_located((By.XPATH, self.CREATE_BOARD_BUTTON)))
         try:
             create_board_button = self._driver.find_element(By.XPATH, self.CREATE_BOARD_BUTTON)
@@ -37,7 +37,7 @@ class HomePage(BaseAppPage):
 
     def fill_board_title_input(self, board_title):
         """ Fills the board title input with the given title. """
-        WebDriverWait(self._driver, 25).until(
+        WebDriverWait(self._driver, 40).until(
             EC.visibility_of_element_located((By.XPATH, self.BOARD_TITLE_INPUT)))
         try:
             board_title_input = self._driver.find_element(By.XPATH, self.BOARD_TITLE_INPUT)
@@ -46,16 +46,19 @@ class HomePage(BaseAppPage):
             print("NoSuchElementException:", e)
 
     def click_create_button(self):
-        """ Clicks on the create button. """
-        WebDriverWait(self._driver, 25).until(
-            EC.visibility_of_element_located((By.XPATH, self.CREATE_BUTTON)))
+        """ Clicks on the create button and waits for board creation. """
         try:
+            WebDriverWait(self._driver, 40).until(
+                EC.element_to_be_clickable((By.XPATH, self.CREATE_BUTTON)))
             create_button = self._driver.find_element(By.XPATH, self.CREATE_BUTTON)
             create_button.click()
-        except NoSuchElementException as e:
-            print("NoSuchElementException:", e)
-        time.sleep(3) #For API convertion
 
+            # Wait for URL to change, indicating board creation
+            current_url = self._driver.current_url
+            WebDriverWait(self._driver, 40).until(EC.url_changes(current_url))
+        except (NoSuchElementException, TimeoutException) as e:
+            print(f"Error clicking create button: {e}")
+            raise  # Re-raise the exception to make the test fail
     def create_board_flow(self, board_title):
         """ Executes the flow to create a board with the given title. """
         self.click_create_board_button()
@@ -64,7 +67,7 @@ class HomePage(BaseAppPage):
 
     def click_header_account_button(self):
         """ Clicks on the header account button. """
-        WebDriverWait(self._driver, 25).until(
+        WebDriverWait(self._driver, 40).until(
             EC.visibility_of_element_located((By.XPATH, self.HEADER_ACCOUNT_BUTTON)))
         try:
             header_account_button = self._driver.find_element(By.XPATH, self.HEADER_ACCOUNT_BUTTON)
@@ -74,7 +77,7 @@ class HomePage(BaseAppPage):
 
     def click_profile_and_visibility_button(self):
         """ Clicks on the profile and visibility button. """
-        WebDriverWait(self._driver, 25).until(
+        WebDriverWait(self._driver, 40).until(
             EC.visibility_of_element_located((By.XPATH, self.PROFILE_AND_VISIBILITY_BUTTON)))
         try:
             profile_and_visibility_button = self._driver.find_element(By.XPATH, self.PROFILE_AND_VISIBILITY_BUTTON)
@@ -82,12 +85,12 @@ class HomePage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def new_board_is_visible(self):
-        new_board = WebDriverWait(self._driver, 25).until(
-            EC.presence_of_element_located((By.XPATH, self.NEW_BOARD)))
-        return new_board.is_displayed()
-
-    def get_board_name(self):
-        board_name = WebDriverWait(self._driver, 25).until(
-            EC.presence_of_element_located((By.XPATH, self.BOARD_NAME)))
-        return board_name.text
+    # def new_board_is_visible(self):
+    #     new_board = WebDriverWait(self._driver, 25).until(
+    #         EC.presence_of_element_located((By.XPATH, self.NEW_BOARD)))
+    #     return new_board.is_displayed()
+    #
+    # def get_board_name(self):
+    #     board_name = WebDriverWait(self._driver, 25).until(
+    #         EC.presence_of_element_located((By.XPATH, self.BOARD_NAME)))
+    #     return board_name.text

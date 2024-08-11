@@ -49,27 +49,27 @@ class ProfilePage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def change_valid_username_flow(self, min_length, max_length, letter_case):
-        """
-            Executes the flow to change the username with valid inputs.
-            Args:
-                min_length (int): Minimum length of the username.
-                max_length (int): Maximum length of the username.
-                letter_case (str): Letter case of the username ("lowercase" or "uppercase").
-        """
-        self.fill_random_username_input(min_length, max_length, letter_case)
-        self.profile_change_save_button_click()
-
-    def change_invalid_username_flow(self, min_length, max_length, letter_case):
-        """
-            Executes the flow to change the username with invalid inputs.
-            Args:
-                min_length (int): Minimum length of the username.
-                max_length (int): Maximum length of the username.
-                letter_case (str): Letter case of the username ("lowercase" or "uppercase").
-        """
-        self.fill_random_username_input(min_length, max_length, letter_case)
-        self.profile_change_save_button_click()
+    # def change_valid_username_flow(self, min_length, max_length, letter_case):
+    #     """
+    #         Executes the flow to change the username with valid inputs.
+    #         Args:
+    #             min_length (int): Minimum length of the username.
+    #             max_length (int): Maximum length of the username.
+    #             letter_case (str): Letter case of the username ("lowercase" or "uppercase").
+    #     """
+    #     self.fill_random_username_input(min_length, max_length, letter_case)
+    #     self.profile_change_save_button_click()
+    #
+    # def change_invalid_username_flow(self, min_length, max_length, letter_case):
+    #     """
+    #         Executes the flow to change the username with invalid inputs.
+    #         Args:
+    #             min_length (int): Minimum length of the username.
+    #             max_length (int): Maximum length of the username.
+    #             letter_case (str): Letter case of the username ("lowercase" or "uppercase").
+    #     """
+    #     self.fill_random_username_input(min_length, max_length, letter_case)
+    #     self.profile_change_save_button_click()
 
     def change_back_username(self, username):
         """

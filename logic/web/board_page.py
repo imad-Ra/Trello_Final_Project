@@ -34,6 +34,9 @@ class BoardPage(BaseAppPage):
         """
         super().__init__(driver)
 
+    def navigate_to_board(self, board_id):
+        self._driver.get(f"{self.config['url']}/b/{board_id}")
+
     def click_header_menu_button(self):
         """ Clicks on the header menu button in the board page. """
         WebDriverWait(self._driver, 25).until(
@@ -143,18 +146,36 @@ class BoardPage(BaseAppPage):
         except NoSuchElementException as e:
             print("NoSuchElementException:", e)
 
-    def add_list_flow(self, text):
-        """ Executes the flow to add a card with the given text. """
-        self.fill_list_test_area_input(text)
-        self.click_add_list_button()
-
-    def get_board_id(self):
-        # Assuming the board ID is in the URL
-        current_url = self._driver.current_url
-        return current_url.split('/')[-1]
+    # def add_list_flow(self, text):
+    #     """ Executes the flow to add a card with the given text. """
+    #     self.fill_list_test_area_input(text)
+    #     self.click_add_list_button()
+    #
+    # def get_board_id(self):
+    #     # Assuming the board ID is in the URL
+    #     current_url = self._driver.current_url
+    #     return current_url.split('/')[-1]
 
     def wait_for_list_and_verify(self, list_name):
         WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.LISTS)))
         lists = self._driver.find_elements(By.XPATH, self.LISTS)
         list_names = [list_elem.text for list_elem in lists]
         return list_name in list_names
+
+
+    def wait_for_board_to_load(self, board_name):
+        try:
+            # First, wait for the URL to contain the board name
+            WebDriverWait(self._driver, 40).until(EC.url_contains(board_name))
+
+            # Then, add a sleep to ensure the page is fully loaded
+            time.sleep(8)
+
+            # Finally, wait for a key element on the board page
+            WebDriverWait(self._driver, 40).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, ".board-header"))
+            )
+
+            return True
+        except:
+            return False
